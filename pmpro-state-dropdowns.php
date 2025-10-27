@@ -93,10 +93,10 @@ class PMPro_State_Dropdowns {
 
 		//check to see if user is  on the admin page.
 		if ( is_admin() && isset($_REQUEST['page']) && $_REQUEST['page'] == 'pmpro-orders' && !empty($_GET['id']) ) {
-			$morder = new MemberOrder($_GET['id']);
+			$morder = new MemberOrder( absint( $_GET['id'] ) );
 		} elseif ( is_admin() && isset($_REQUEST['page']) && $_REQUEST['page'] == 'pmpro-orders' && !empty($_GET['order']) ) {
 			// Pre-3.6 compatibility.
-			$morder = new MemberOrder($_GET['order']);
+			$morder = new MemberOrder( absint( $_GET['order'] ) );
 		}
 		
 		//if $morder is not empty (i.e. on the orders page try to get details from REQUEST or USER META )
